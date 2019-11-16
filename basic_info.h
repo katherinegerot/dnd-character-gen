@@ -8,12 +8,7 @@
  * V1.0: Basic Races
  */
 
-struct weapon {
-  char* damage_type;
-
-} Weapon;
-
-enum race_basic {
+enum Basic_Race {
   Dragon_Born, //db
   Dwarf, // dw
   Elf, // el
@@ -22,25 +17,44 @@ enum race_basic {
   Halfling, //hf
   Half_Orc, //ho
   Tiefling //tf
-} Basic_Race;
+};
 
-struct ability_scores{
+struct Ability_Scores{
   int strength[2];
   int dexterity[2];
   int consitution[2];
   int intelligence[2];
   int wisdom[2];
   int charisma[2];
-} Ability;
+};
 
-// enum languages {
-//
-// } Language;
+struct Weapon {
+  char* damage_type;
+  char save;
+  int throw_max;
+  double distance; //in feet
+  char* direction;
+  char* cooldown;
+};
 
-struct race_profile {
+enum Gender {
+  Male,
+  Female,
+  Agender,
+  Non-binary,
+  Bigender,
+  Unknown
+};
+
+enum Language {
+  Common,
+  Draconic
+};
+
+struct Race_Profile {
   Basic_Race race;
-  char* name;
-  char* type;
+  char** names;
+  char** types;
   int ability_modifiers;
   int age_range[2];
   double alignment_weight[6];
@@ -48,4 +62,14 @@ struct race_profile {
   int weight_avg;
   int speed;
   Weapon* ancestry;
-} Race_Profile;
+  char** resistances;
+};
+
+struct Character {
+  Basic_Race race;
+  Gender gender;
+  char* name;
+  char* type;
+  Ability abilities;
+  Weapon* weapons;
+};
