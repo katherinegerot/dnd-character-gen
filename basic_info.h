@@ -5,9 +5,10 @@
  * Version 1.0
  *
  * Header file for basic character information
- * V1.0: Basic Races
+ * V1.0: Basic races and their profiles
  */
 
+// Enumerators for easier identification
 enum Basic_Race {
   Dragon_Born, //db
   Dwarf, // dw
@@ -18,8 +19,15 @@ enum Basic_Race {
   Half_Orc, //ho
   Tiefling //tf
 };
+enum Gender {Male,Female,Agender,Non-binary,Bigender,Unknown};
+enum Language {
+  Common,
+  Draconic
+};
 
+// Holds ability scores and modifiers
 struct Ability_Scores{
+  // first value is score, second is mod
   int strength[2];
   int dexterity[2];
   int consitution[2];
@@ -28,6 +36,7 @@ struct Ability_Scores{
   int charisma[2];
 };
 
+// Specific weapon and attack ability breakdown
 struct Weapon {
   char* damage_type;
   char save;
@@ -35,22 +44,10 @@ struct Weapon {
   double distance; //in feet
   char* direction;
   char* cooldown;
+  char* damage;
 };
 
-enum Gender {
-  Male,
-  Female,
-  Agender,
-  Non-binary,
-  Bigender,
-  Unknown
-};
-
-enum Language {
-  Common,
-  Draconic
-};
-
+// Race-specific alterations
 struct Race_Profile {
   Basic_Race race;
   char** names;
@@ -65,6 +62,7 @@ struct Race_Profile {
   char** resistances;
 };
 
+// Character profile
 struct Character {
   Basic_Race race;
   Gender gender;

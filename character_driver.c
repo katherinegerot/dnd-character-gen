@@ -10,5 +10,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "basic_info.h"
 // latex printing to come in later versions
 #include "latex_utils.h"
