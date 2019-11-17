@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 #include "basic_info.h"
 #include "names.h"
@@ -56,13 +57,51 @@ Class_Profile class_profile_init(PHB_Class class){
       cp->weapon_proficiences = "Simple and martial weapons";
       cp->tools = "None";
       cp->saving_throws = "Strength, Consitution"
+      cp->skill_choices = {1,3,7,10,11,17};
+      cp->num_choose = 2;
       break;
   }
   return cp;
 }
-Ability_Scores gen_abilities(Class_Profile class){
+Ability_Scores gen_abilities(Class_Profile class, Race_Profile race){
+  Ability_Scores abilities;
+  abilities-> race->ability_modifiers[0];
+  srand(time(0));
+  int rolls[6];
+  for(int i = 0; i < 6; i++) {
+    rolls[i] = (rand() % 20) + 1;
+  }
+  quicksort(rolls, 0, 5);
+
 
 }
+
+int max(int arr[]){
+  int max = arr[0];
+  int index = 0;
+  for (int i = 1; i < 6; i++){
+    max = arr[i] > max ? arr[i] : max;
+    index = i;
+  }
+  return index;
+}
+
+void quicksort(int arr[], int a, int b) {
+    if (a < b){
+      int p = arr[b], c = l;
+      for (int i = a; i <= b; i++){
+          if (arr[i] <= pivot) {
+            int temp = arr[i];
+            arr[i] = arr[c];
+            arr[c] = temp;
+            c++;
+          }
+      }
+    quicksort(arr, a, c-2);
+    quicksort(arr, c, b);
+}
+
+
 Skills gen_skills(Ability_Scores abilities){
 
 }

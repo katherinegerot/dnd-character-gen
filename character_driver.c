@@ -13,3 +13,8 @@
 #include "basic_info.h"
 // latex printing to come in later versions
 #include "latex_utils.h"
+
+int int main(int argc, char const **argv) {
+
+  return 0;
+}

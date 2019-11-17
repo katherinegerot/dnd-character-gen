@@ -13,13 +13,17 @@ Race_Profile race_profile_init(PHB_Race race);
 Class_Profile class_profile_init(PHB_Class class);
 
 // Ability scores and Skills
-Ability_Scores gen_abilities(Class_Profile class);
+Ability_Scores gen_abilities(Class_Profile class, Race_Profile race);
 Skills gen_skills(Ability_Scores abilities);
 
 // Item Creators
 // Weapon create_weapon(Weapon_Type w_type,Damage_Type d_type,int save,
 //   int throw_max,char* distance,char* cooldown, char* damage);
 char ** create_dragonborn_ancestry();
+
+// Other
+void quicksort(int arr[], int a, int b)
+int max(int arr[]);
 
 // Enumerators for easier identification
 enum PHB_Race {Dragon_Born,Dwarf,Elf,Gnome,Half_Elf,Halfling,Half_Orc,
@@ -31,8 +35,7 @@ enum Language {Common,Draconic};
 enum Equipment_Type {Light_Armour,Medium_Armour,Heavy_Armour,Shield,Tool};
 Weapon_Type {Simple,Martial,Breath};
 enum Damage_Type {Acid,Lightning,Fire,Poison,Cold};
-enum Skills {
-  acrobatics,animal_handling,arcana,athletics,deception,history,history,
+enum Skills {acrobatics,animal_handling,arcana,athletics,deception,history,
   insight,imidation,investigation,medicine,nature,perception,performance,
   persuasion,religion,slight_of_hand,stealth,survival
 };
