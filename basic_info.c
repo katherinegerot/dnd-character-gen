@@ -42,13 +42,20 @@ Class_Profile class_profile_init(PHB_Class class){
   cp->class = class;
   switch (class) {
     case Barbarian:
-      cp->starting_equip = {{"Greataxe",""},{"Two Handaxes",""},{"Explorer's Pack"},{"Four Javelins"}};
-      cp->features;
-      cp->hit_points;//int
-      cp->hit_dice;//int
-      cp->ability_weights;//int* for rest
-      // cp->armour_proficiencies;
-      // cp->weapon_proficiences;
+      cp->starting_equip = {{"Greataxe","Battleaxe","Flail","Glaive","Greatsword",
+         "Halberd","Lance","Longsword","Maul","Morningstar","Pike","Rapier",
+         "Scimitar","Shortsword","Trident","War Pick","Warhammer","Whip"},
+        {"Two Handaxes","Club","Dagger","Greatclub","Handaxe","Javelin",
+         "Light Hammer","Mace","Quarterstaff","Sickle","Spear"},
+        {"Explorer's Pack"},{"Four Javelins"}};
+      cp->features = {"Rage (2 Rages, +2 Damage)\nUnarmored Defense"};
+      cp->hit_points = 12;
+      cp->hit_dice = "1d12";
+      cp->ability_weights = {6,1,5,1,1,1};
+      cp->armour_proficiencies = "Light and medium armour, shields";
+      cp->weapon_proficiences = "Simple and martial weapons";
+      cp->tools = "None";
+      cp->saving_throws = "Strength, Consitution"
       break;
   }
   return cp;
@@ -73,12 +80,12 @@ char ** create_dragonborn_ancestry(){
       case 5: case 7: a[i] = "Fire Breath, 15 ft. cone (Dex. save)";
         break;
       case 8: case 9: a[i] = "Cold Breath, 15 ft. cone (Con. save)";
-        a[i] = create_weapon(Breath,Cold,2,8,"15 ft. cone","Can be used once every rest","2d6");
         break;
       case 6: a[i] = "Poison Breath, 15 ft. cone (Con. save)";
         break;
     }
   }
+  return a;
 }
 
 // Weapon * create_dragonborn_ancestry(){

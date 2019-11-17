@@ -31,6 +31,11 @@ enum Language {Common,Draconic};
 enum Equipment_Type {Light_Armour,Medium_Armour,Heavy_Armour,Shield,Tool};
 Weapon_Type {Simple,Martial,Breath};
 enum Damage_Type {Acid,Lightning,Fire,Poison,Cold};
+enum Skills {
+  acrobatics,animal_handling,arcana,athletics,deception,history,history,
+  insight,imidation,investigation,medicine,nature,perception,performance,
+  persuasion,religion,slight_of_hand,stealth,survival
+};
 
 // Race-specific alterations
 struct Race_Profile {
@@ -45,11 +50,13 @@ struct Race_Profile {
 
 struct Class_Profile {
   PHB_Class class;
-  char** features;
-  int hit_points,hit_dice;
-  int* ability_weights;
-  int* armour_proficiencies,weapon_proficiences;
+  char* features,armour_proficiencies,weapon_proficiences,tools,saving_throws;
+  int hit_points;
+  char* hit_dice;
+  int ability_weights[6];
   char*** starting_equip;
+  int* skill_choices;
+  int num_choose;
 };
 
 // Holds ability scores and modifiers
@@ -60,13 +67,6 @@ struct Ability_Scores{
 struct Alignment {
   int lawful_good,neutral_good,chaotic_good,lawful_neutral,true_neutral,
       chaotic_neutral,lawful_evil,neutral_evil,chaotic_evil;
-};
-
-// Skill structure
-struct Skills {
-  int acrobatics,animal_handling,arcana,athletics,deception,history,history,
-      insight,imidation,investigation,medicine,nature,perception,performance,
-      persuasion,religion,slight_of_hand,stealth,survival;
 };
 
 // Specific weapon and attack ability breakdown
@@ -100,5 +100,5 @@ struct Character {
   char** weapons;
   Equipment* equipment;
   Purse purse;
-  Skills skills;
+  Skills* skills;
 };
