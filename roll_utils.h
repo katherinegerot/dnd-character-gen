@@ -20,4 +20,4 @@ int d(int n);
 /**
  * sorts rolls in ascending order
  */
-void sort_rolls(int[] rolls, int size);
+void sort_rolls(int * rolls, int size);
