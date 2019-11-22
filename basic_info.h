@@ -15,6 +15,7 @@ Class_Profile class_profile_init(PHB_Class class);
 // Ability scores and Skills
 Ability_Scores gen_abilities(Class_Profile class, Race_Profile race);
 Skills gen_skills(Ability_Scores abilities);
+Ability_Scores assign_abilities(int arr[], int mod);
 
 // Item Creators
 // Weapon create_weapon(Weapon_Type w_type,Damage_Type d_type,int save,
