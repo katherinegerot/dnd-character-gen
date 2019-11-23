@@ -1,8 +1,7 @@
 /**
  * Author: Katherine Gerot
  * Creation Date: 11/16/2019
- * Last Edited: 11/22/2019
- * Version 1.0
+ * Last Edited: 11/23/2019
  *
  * D&D 5e Character Generator
  */
@@ -11,8 +10,13 @@
 #include <stdio.h>
 
 #include "roll_utils.h"
+#include "output_utils.h"
 
-int main(int argc, char const **argv) {
-  printf("%d\n", d(20));
+int main(int argc, char **argv) {
+  int n[6] = {20, 20, 20, 20, 20, 20};
+  d_i(n, 6);
+  print_rolls(n, 6);
+  sort_rolls(n, 6);
+  print_rolls(n, 6);
   return 0;
 }

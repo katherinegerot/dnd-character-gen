@@ -1,11 +1,12 @@
 /**
  * Author: Katherine Gerot
  * Creation Date: 11/22/2019
- * Last Edited: 11/22/2019
- * Version 1.0
+ * Last Edited: 11/23/2019
+ * Version 1.1
  *
  * Header file for functions controlling rolls
  * V1.0: Basic function outlines
+ * V1.1: Correcting random and adding collective rolls
  */
 
  #include <time.h>
@@ -18,6 +19,11 @@
 int d(int n);
 
 /**
- * sorts rolls in ascending order
+ * rolls a collection where n is the dice and i is the length of n
+ */
+void d_i(int * n, int k);
+
+/**
+ * sorts rolls in descending order
  */
 void sort_rolls(int * rolls, int size);
