@@ -17,3 +17,7 @@ void print_rolls(int * n, int size){
   }
   printf("\n");
 }
+
+void print_info(char * title, char * info) {
+  printf("%s:\t%s\n", title, info);
+}

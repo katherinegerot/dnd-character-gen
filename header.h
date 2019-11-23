@@ -16,6 +16,8 @@
  */
 //printing rolls
 void print_rolls(int * n, int size);
+//printing generic info
+void print_info(char * title, char * info);
 
 /**
  * Roll Utils
