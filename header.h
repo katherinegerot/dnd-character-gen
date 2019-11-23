@@ -26,3 +26,9 @@ int d(int n);
 void d_i(int * n, int k);
 //sorts rolls in descending order
 void sort_rolls(int * rolls, int size);
+
+/**
+ * Latex Utils
+ */
+ //Creates Pdf from latex file
+ void create_pdf(char * filename);
