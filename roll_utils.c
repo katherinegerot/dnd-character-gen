@@ -7,10 +7,10 @@
  * Functions controlling rolls
  * V1.0: Basic function outlines
  */
- #include "roll_utils.h"
+
+#include "roll_utils.h"
 
 int d(int n) {
-  srand(time(0));
   return (rand() % 20) + 1;
 }
 
