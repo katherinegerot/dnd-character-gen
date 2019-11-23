@@ -9,8 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "roll_utils.h"
-#include "output_utils.h"
+#include "header.h"
 
 int main(int argc, char **argv) {
   int n[6] = {20, 20, 20, 20, 20, 20};

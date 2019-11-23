@@ -8,7 +8,7 @@
  * V1.0: Basic function outlines
  */
 
-#include "output_utils.h"
+#include "header.h"
 
 void print_rolls(int * n, int size){
   printf("---------ROLLS---------\n");

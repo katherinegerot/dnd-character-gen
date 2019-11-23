@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -std=gnu99 -lm
-DEPS = roll_utils.h output_utils.h
+DEPS = header.h
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

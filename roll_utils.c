@@ -25,12 +25,12 @@ void sort_rolls(int * rolls, int size){
   for(int i = 0; i < size - 1; i++) {
     int min = i;
     for(int j = i + 1; j < size; j++) {
-      if(rolls[j] < rolls[min]){
+      if(*(rolls + j) < *(rolls + min)){
         min = j;
       }
-      int temp = rolls[min];
-      rolls[min] = rolls[j];
-      rolls[j] = temp;
+      int temp = *(rolls + min);
+      *(rolls + min) = *(rolls + j);
+      *(rolls + j) = temp;
     }
   }
 }
