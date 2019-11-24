@@ -13,8 +13,121 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "basic_info.h"
-#include "names.h"
+#include "header.h"
+
+char * gen_race(int * race) {
+  *race = rand() % 9;
+  switch (*race) {
+    case 0: return "Dragon Born";
+    case 1: return "Dwarf";
+    case 2: return "Elf";
+    case 3: return "Gnome";
+    case 4: return "Half Elf";
+    case 5: return "Halfling";
+    case 6: return "Half Orc";
+    case 7: return "Human";
+    case 8: return "Tiefling";
+    default: return "Broken";
+  }
+}
+
+char * gen_class(int * class) {
+  *class = rand() % 12;
+  switch (*class) {
+    case 0: return "Barbarian";
+    case 1: return "Bard";
+    case 2: return "Cleric";
+    case 3: return "Druid";
+    case 4: return "Fighter";
+    case 5: return "Monk";
+    case 6: return "Paladin";
+    case 7: return "Ranger";
+    case 8: return "Rogue";
+    case 9: return "Sorcerer";
+    case 10: return "Warlock";
+    case 11: return "Wizard";
+    default: return "Broken";
+  }
+}
+
+char * gen_gender(int * gender) {
+  *gender = rand() % 8;
+  switch (*gender) {
+    case 0: case 1: case 2: *gender = 0; return "Male";
+    case 3: case 4: case 5: *gender = 1; return "Female";
+    case 6: case 7: *gender = 2; return "Non-Binary";
+    default: return "Broken";
+  }
+}
+
+char * gen_name(int race, int gender) {
+  switch (race) {
+    case 0: return dragon_born_name(gender);
+    case 1: return dwarf__name(gender);
+    case 2: return elf_name(gender);
+    case 3: return gnome_name(gender);
+    case 4: return half_elf_name(gender);
+    case 5: return halfling_name(gender);
+    case 6: return half_orc_name(gender);
+    case 7: return human_name(gender);
+    case 8: return teifling_name(gender);
+    default: return "Broken";
+  }
+}
+
+char * dragon_born_name(int gender) {
+
+  int num_first_lines, num_last_lines = count_file_lines("data/names/last_db.txt");
+  char file_first[50];
+  switch (gender) {
+    case 0: strcpy(file_first, "data/names/male_db.txt"); break;
+    case 1: strcpy(file_first, "data/names/female_db.txt"); break;
+    case 2: strcpy(file_first, "data/names/neutral_db.txt"); break;
+    default: break;
+  }
+  num_first_lines = count_file_lines(file_first);
+
+  char * first_names = (char*)malloc(sizeof(char*) * 50);
+  char * last_names = (char*)malloc(sizeof(char*) * 50);
+  load_from_file(file_first, 0, first_names);
+  load_from_file("data/names/last_db.txt", 0, last_names);
+
+  printf("%s of the clan %s\n", first_names, last_names);
+  printf("%d %d\n", num_first_lines, num_last_lines);
+  return "got here";
+}
+
+char * dwarf__name(int gender) {
+  return "";
+}
+
+char * elf_name(int gender) {
+  return "";
+}
+
+char * gnome_name(int gender) {
+  return "";
+}
+
+char * half_elf_name(int gender){
+  return "";
+}
+
+char * halfling_name(int gender){
+  return "";
+}
+
+char * half_orc_name(int gender){
+  return "";
+}
+
+char * human_name(int gender){
+  return "";
+}
+
+char * teifling_name(int gender){
+  return "";
+}
 
 // Race_Profile race_profile_init(PHB_Race race){
 //   Race_Profile rp;

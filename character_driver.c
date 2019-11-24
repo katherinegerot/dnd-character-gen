@@ -13,5 +13,14 @@ int main(int argc, char **argv) {
   d_i(n, 6);
   sort_rolls(n, 6);
   print_rolls(n, 6);
+  int c, r, g; // int representation of race and class and gender
+  char * race = gen_race(&r);
+  char * class = gen_class(&c);
+  char * gender = gen_gender(&g);
+  print_info("Race", race);
+  print_info("Class", class);
+  print_info("Gender", gender);
+  char * name = gen_name(0, g);
+  print_info("Name", name);
   return 0;
 }

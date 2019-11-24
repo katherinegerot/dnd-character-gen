@@ -5,5 +5,5 @@ DEPS = header.h
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-dndmake: roll_utils.o character_driver.o output_utils.o
-	$(CC) -o dndmake character_driver.o roll_utils.o output_utils.o
+dndmake: roll_utils.o character_driver.o io_utils.o basic_info.o
+	$(CC) -o dndmake character_driver.o roll_utils.o io_utils.o basic_info.o
