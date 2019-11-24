@@ -15,7 +15,6 @@ int d(int n) {
 }
 
 void d_i(int * n, int k) {
-  srand(time(NULL));
   for(int i = 0; i < k; i++) {
     *(n + i) = d(*(n+i));
   }

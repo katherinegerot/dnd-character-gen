@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <sys/time.h>
 #include <time.h>
 #include <string.h>
 
@@ -47,13 +48,10 @@ char * gen_race(int * race);
 char * gen_class(int * class);
 char * gen_gender(int * gender);
 //naming functions
-char * gen_name(int race, int gender);
-char * dragon_born_name(int gender);
-char * dwarf__name(int gender);
-char * elf_name(int gender);
-char * gnome_name(int gender);
-char * half_elf_name(int gender);
-char * halfling_name(int gender);
-char * half_orc_name(int gender);
-char * human_name(int gender);
-char * teifling_name(int gender);
+char * _gen_name(int gender, char * race, char * sep);
+
+/**
+ * Miscellanious
+ */
+char * gen_unique_id();
+void seed();

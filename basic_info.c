@@ -62,95 +62,41 @@ char * gen_gender(int * gender) {
 
 char * gen_name(int race, int gender) {
   switch (race) {
-    case 0: return dragon_born_name(gender);
-    case 1: return dwarf__name(gender);
-    case 2: return elf_name(gender);
-    case 3: return gnome_name(gender);
-    case 4: return half_elf_name(gender);
-    case 5: return halfling_name(gender);
-    case 6: return half_orc_name(gender);
-    case 7: return human_name(gender);
-    case 8: return teifling_name(gender);
+    case 0: return _gen_name(gender, "db", " of the clan ");
+    case 1: return _gen_name(gender, "d", " ");
+    case 2: return _gen_name(gender, "e", " ");
+    case 3: return _gen_name(gender, "g", " ");
+    case 4: return _gen_name(gender, "he", " ");
+    case 5: return _gen_name(gender, "hf", " ");
+    case 6: return _gen_name(gender, "ho", " ");
+    case 7: return _gen_name(gender, "h", " ");
+    case 8: return _gen_name(gender, "t", " ");
     default: return "Broken";
   }
 }
 
-char * dragon_born_name(int gender) {
-  int num_first_lines, num_last_lines = count_file_lines("data/names/last_db.txt");
-  char * file_first = (char*)malloc(sizeof(char*) * 50);
+char * _gen_name(int gender, char * race, char * sep) {
 
-  switch (gender) {
-    case 0: strcpy(file_first, "data/names/male_db.txt"); break;
-    case 1: strcpy(file_first, "data/names/female_db.txt"); break;
-    case 2: strcpy(file_first, "data/names/neutral_db.txt"); break;
-    default: break;
+  char * file_first = (char*)malloc(sizeof(char*) * 50);
+  char * file_last = (char*)malloc(sizeof(char*) * 50);
+  snprintf(file_first, 200, "%s%s%c%d%s", "data/names/", race, '_', gender, ".txt");
+  snprintf(file_last, 200, "%s%s%c%d%s", "data/names/", race, '_', 3, ".txt");
+  int num_first_lines = count_file_lines(file_first);
+  int num_last_lines = count_file_lines(file_last);
+
+  if(num_first_lines == 0 || num_last_lines == 0) {
+    return "Can't Open Naming Files";
   }
-  num_first_lines = count_file_lines(file_first);
 
   char * first_name = (char*)malloc(sizeof(char*) * 50);
   char * last_name = (char*)malloc(sizeof(char*) * 50);
   char * full_name = (char*)malloc(sizeof(char*) * 200);
-  load_from_file(file_first, rand() % num_first_lines, first_name);
-  load_from_file("data/names/last_db.txt", rand() % num_last_lines, last_name);
 
-  strcat(full_name, first_name);
-  strcat(full_name, " of the clan ");
-  strcat(full_name, last_name);
+  load_from_file(file_first, rand() % num_first_lines, first_name);
+  load_from_file(file_last, rand() % num_last_lines, last_name);
+  snprintf(full_name, 200, "%s%s%s", first_name, sep, last_name);
 
   return full_name;
-}
-
-char * dwarf__name(int gender) {
-  return "TO IMPLEMENT";
-}
-
-char * elf_name(int gender) {
-  return "TO IMPLEMENT";
-}
-
-char * gnome_name(int gender) {
-  return "TO IMPLEMENT";
-}
-
-char * half_elf_name(int gender){
-  return "TO IMPLEMENT";
-}
-
-char * halfling_name(int gender){
-  return "TO IMPLEMENT";
-}
-
-char * half_orc_name(int gender){
-  return "TO IMPLEMENT";
-}
-
-char * human_name(int gender){
-  int num_first_lines, num_last_lines = count_file_lines("data/names/last_db.txt");
-  char * file_first = (char*)malloc(sizeof(char*) * 50);
-
-  switch (gender) {
-    case 0: strcpy(file_first, "data/names/male_db.txt"); break;
-    case 1: strcpy(file_first, "data/names/female_db.txt"); break;
-    case 2: strcpy(file_first, "data/names/neutral_db.txt"); break;
-    default: break;
-  }
-  num_first_lines = count_file_lines(file_first);
-
-  char * first_name = (char*)malloc(sizeof(char*) * 50);
-  char * last_name = (char*)malloc(sizeof(char*) * 50);
-  char * full_name = (char*)malloc(sizeof(char*) * 200);
-  load_from_file(file_first, rand() % num_first_lines, first_name);
-  load_from_file("data/names/last_db.txt", rand() % num_last_lines, last_name);
-
-  strcat(full_name, first_name);
-  strcat(full_name, " of the clan ");
-  strcat(full_name, last_name);
-
-  return full_name;
-}
-
-char * teifling_name(int gender){
-  return "TO IMPLEMENT";
 }
 
 // Race_Profile race_profile_init(PHB_Race race){
