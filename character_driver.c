@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
   print_info("Race", race);
   print_info("Class", class);
   print_info("Gender", gender);
-  char * name = gen_name(0, g);
+  char * name = gen_name(r, g);
   print_info("Name", name);
   return 0;
 }

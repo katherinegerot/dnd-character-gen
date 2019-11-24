@@ -76,9 +76,9 @@ char * gen_name(int race, int gender) {
 }
 
 char * dragon_born_name(int gender) {
-
   int num_first_lines, num_last_lines = count_file_lines("data/names/last_db.txt");
-  char file_first[50];
+  char * file_first = (char*)malloc(sizeof(char*) * 50);
+
   switch (gender) {
     case 0: strcpy(file_first, "data/names/male_db.txt"); break;
     case 1: strcpy(file_first, "data/names/female_db.txt"); break;
@@ -87,46 +87,70 @@ char * dragon_born_name(int gender) {
   }
   num_first_lines = count_file_lines(file_first);
 
-  char * first_names = (char*)malloc(sizeof(char*) * 50);
-  char * last_names = (char*)malloc(sizeof(char*) * 50);
-  load_from_file(file_first, 0, first_names);
-  load_from_file("data/names/last_db.txt", 0, last_names);
+  char * first_name = (char*)malloc(sizeof(char*) * 50);
+  char * last_name = (char*)malloc(sizeof(char*) * 50);
+  char * full_name = (char*)malloc(sizeof(char*) * 200);
+  load_from_file(file_first, rand() % num_first_lines, first_name);
+  load_from_file("data/names/last_db.txt", rand() % num_last_lines, last_name);
 
-  printf("%s of the clan %s\n", first_names, last_names);
-  printf("%d %d\n", num_first_lines, num_last_lines);
-  return "got here";
+  strcat(full_name, first_name);
+  strcat(full_name, " of the clan ");
+  strcat(full_name, last_name);
+
+  return full_name;
 }
 
 char * dwarf__name(int gender) {
-  return "";
+  return "TO IMPLEMENT";
 }
 
 char * elf_name(int gender) {
-  return "";
+  return "TO IMPLEMENT";
 }
 
 char * gnome_name(int gender) {
-  return "";
+  return "TO IMPLEMENT";
 }
 
 char * half_elf_name(int gender){
-  return "";
+  return "TO IMPLEMENT";
 }
 
 char * halfling_name(int gender){
-  return "";
+  return "TO IMPLEMENT";
 }
 
 char * half_orc_name(int gender){
-  return "";
+  return "TO IMPLEMENT";
 }
 
 char * human_name(int gender){
-  return "";
+  int num_first_lines, num_last_lines = count_file_lines("data/names/last_db.txt");
+  char * file_first = (char*)malloc(sizeof(char*) * 50);
+
+  switch (gender) {
+    case 0: strcpy(file_first, "data/names/male_db.txt"); break;
+    case 1: strcpy(file_first, "data/names/female_db.txt"); break;
+    case 2: strcpy(file_first, "data/names/neutral_db.txt"); break;
+    default: break;
+  }
+  num_first_lines = count_file_lines(file_first);
+
+  char * first_name = (char*)malloc(sizeof(char*) * 50);
+  char * last_name = (char*)malloc(sizeof(char*) * 50);
+  char * full_name = (char*)malloc(sizeof(char*) * 200);
+  load_from_file(file_first, rand() % num_first_lines, first_name);
+  load_from_file("data/names/last_db.txt", rand() % num_last_lines, last_name);
+
+  strcat(full_name, first_name);
+  strcat(full_name, " of the clan ");
+  strcat(full_name, last_name);
+
+  return full_name;
 }
 
 char * teifling_name(int gender){
-  return "";
+  return "TO IMPLEMENT";
 }
 
 // Race_Profile race_profile_init(PHB_Race race){

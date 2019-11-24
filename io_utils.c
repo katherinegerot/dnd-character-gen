@@ -35,7 +35,7 @@ void load_from_file(char * filename, int n, char * line) {
   }
   fgets(line, 1000, f);
   for(int i = 0; i < strlen(line); i++) {
-    if(line[i] == '\n'){
+    if(line[i] == '\r' || line[i] == '\n') {
       line[i] = '\0';
       return;
     }
