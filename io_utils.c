@@ -54,9 +54,10 @@ void print_info(char * title, char * info) {
 }
 
 char * gen_unique_id() {
-  char * key = (char*)malloc(sizeof(char) * 11);
+  int size = 7;
+  char * key = (char*)malloc(sizeof(char) * (size + 1));
   char c = 'A';
-  for(int i = 0; i < 10; i++) {
+  for(int i = 0; i < size; i++) {
     int type = rand() % 3;
     switch (type) {
       case 0:
@@ -71,7 +72,7 @@ char * gen_unique_id() {
     }
     key[i] = c;
   }
-  key[10] = '\0';
+  key[size] = '\0';
   return key;
 }
 
