@@ -11,6 +11,7 @@
 int main(int argc, char **argv) {
   seed();
   char * key = gen_unique_id();
+  printf("--------------------------\n");
   print_info("Key", key);
   int n[6] = {20, 20, 20, 20, 20, 20};
   d_i(n, 6);

@@ -28,10 +28,7 @@ void print_info(char * title, char * info); //printing generic info
 /**
  * Roll Utils
  */
-
-//d will roll a d_ and return that roll (using random)
-int d(int n);
-
+int d(int n); //d will roll a d_ and return that roll (using random)
 //rolls a collection where n is the dice and i is the length of n
 void d_i(int * n, int k);
 void sort_rolls(int * rolls, int size); //sorts rolls in descending order
@@ -48,6 +45,7 @@ char * gen_race(int * race);
 char * gen_class(int * class);
 char * gen_gender(int * gender);
 //naming functions
+char * gen_name(int race, int gender);
 char * _gen_name(int gender, char * race, char * sep);
 
 /**

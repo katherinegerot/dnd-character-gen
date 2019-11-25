@@ -88,13 +88,21 @@ char * _gen_name(int gender, char * race, char * sep) {
     return "Can't Open Naming Files";
   }
 
-  char * first_name = (char*)malloc(sizeof(char*) * 50);
-  char * last_name = (char*)malloc(sizeof(char*) * 50);
-  char * full_name = (char*)malloc(sizeof(char*) * 200);
+  char * first_name = (char*)malloc(sizeof(char) * 100);
+  char * last_name = (char*)malloc(sizeof(char) * 100);
+  char * full_name = (char*)malloc(sizeof(char) * 200);
 
   load_from_file(file_first, rand() % num_first_lines, first_name);
   load_from_file(file_last, rand() % num_last_lines, last_name);
-  snprintf(full_name, 200, "%s%s%s", first_name, sep, last_name);
+
+  if(strcmp("hf", race) == 0) { //Halfling
+    int num_earned_lines = count_file_lines("data/names/hf_4.txt");
+    char * earned_name = (char*)malloc(sizeof(char) * 100);
+    load_from_file("data/names/hf_4.txt", rand() % num_earned_lines, earned_name);
+    snprintf(full_name, 200, "%s%s%s (%s %s)", first_name, sep, last_name, first_name, earned_name);
+  } else {
+    snprintf(full_name, 200, "%s%s%s", first_name, sep, last_name);
+  }
 
   return full_name;
 }
