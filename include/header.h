@@ -24,8 +24,6 @@ int count_file_lines(char * filename);
  */
 void print_rolls(int * n, int size); // printing rolls
 void print_info(char * title, char * info); // printing generic info
-void create_blank_sheet(char * key);
-void create_pdf(char * key);
 
 /**
  * Roll Utils
@@ -58,10 +56,3 @@ char * _gen_name(int gender, char * race, char * sep);
  */
 char * gen_unique_id();
 void seed();
-
-/*
- * TO DELETE LATER
- */
-void test_key_distribution();
-void print_distribution(char ** keys);
-void search(char ** keys, char * key);

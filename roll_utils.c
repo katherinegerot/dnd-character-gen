@@ -8,7 +8,7 @@
  * V1.0: Basic function outlines
  */
 
-#include "header.h"
+#include "include/header.h"
 
 int d(int n) {
   return (rand() % 20) + 1;

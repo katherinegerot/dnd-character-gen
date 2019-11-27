@@ -8,7 +8,7 @@
  * V1.0: Basic function outlines
  */
 
-#include "header.h"
+#include "include/header.h"
 
 int count_file_lines(char * filename) {
   int n = 0;

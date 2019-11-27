@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "header.h"
+#include "include/header.h"
 
 char * gen_race(int * race) {
   *race = rand() % 9;
@@ -71,7 +71,7 @@ char * gen_name(int race, int gender) {
     case 6: return _gen_name(gender, "ho", " ");
     case 7: return _gen_name(gender, "h", " ");
     case 8: return _gen_name(gender, "t", " ");
-    default: return "Broken";
+    default: return "Race Not Implemented";
   }
 }
 

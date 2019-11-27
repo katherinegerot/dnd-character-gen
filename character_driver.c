@@ -6,7 +6,7 @@
  * D&D 5e Character Generator
  */
 
-#include "header.h"
+#include "include/header.h"
 
 int main(int argc, char **argv) {
   seed();
@@ -26,5 +26,6 @@ int main(int argc, char **argv) {
   print_info("Gender", gender);
   char * name = gen_name(r, g);
   print_info("Name", name);
+  create_blank_sheet(key);
   return 0;
 }
