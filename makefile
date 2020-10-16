@@ -1,5 +1,5 @@
 CC			= gcc
-CFLAGS	= -Wall -std=gnu99 -lm -I.
+CFLAGS		= -Wall -std=gnu99 -lm -I.
 DEPS 		= include/header.h
 
 %.o: %.c $(DEPS)

@@ -17,37 +17,22 @@
 
 char * gen_race(int * race) {
   *race = rand() % 9;
-  switch (*race) {
-    case 0: return "Dragon Born";
-    case 1: return "Dwarf";
-    case 2: return "Elf";
-    case 3: return "Gnome";
-    case 4: return "Half Elf";
-    case 5: return "Halfling";
-    case 6: return "Half Orc";
-    case 7: return "Human";
-    case 8: return "Tiefling";
-    default: return "Broken";
+  FILE * race_file = fopen("data/general/races.txt", "r");
+  char * line = (char *)malloc(sizeof(char) * 50);
+  for(int i = 0; i <= *race; i++){
+    fscanf(race_file, "%[^\n]", line);
   }
+  return line;
 }
 
 char * gen_class(int * class) {
   *class = rand() % 12;
-  switch (*class) {
-    case 0: return "Barbarian";
-    case 1: return "Bard";
-    case 2: return "Cleric";
-    case 3: return "Druid";
-    case 4: return "Fighter";
-    case 5: return "Monk";
-    case 6: return "Paladin";
-    case 7: return "Ranger";
-    case 8: return "Rogue";
-    case 9: return "Sorcerer";
-    case 10: return "Warlock";
-    case 11: return "Wizard";
-    default: return "Broken";
+  FILE * race_file = fopen("data/general/classes.txt", "r");
+  char * line = (char *)malloc(sizeof(char) * 50);
+  for(int i = 0; i <= *race; i++){
+    fscanf(race_file, "%[^\n]", line);
   }
+  return line;
 }
 
 char * gen_gender(int * gender) {
